@@ -1,70 +1,137 @@
-@extends('main')
+@extends('front')
 
 @section('content')
- <section>
-            
-            <div class="panel panel-signup">
-                <div class="panel-body">
-                    <div class="logo text-center">
-                        <img src="images/logo-primary.png" alt="Chain Logo" >
-                    </div>
-                    <br />
-                    <h4 class="text-center mb5">Create a new account</h4>
-                    <p class="text-center">Please enter your credentials below
-                    <p class='text-center' style="color:red;">{{{  $message or '' }}}</p>
-                    </p>
-                    
-                    <div class="mb30"></div>
-                    
-                    <form action="register" method="post">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="input-group mb15">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input name="username" value="{{@$username}}" type="text" class="form-control" placeholder="Enter Username">
-                                </div><!-- input-group -->
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="input-group mb15">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input name="email" type="email" value="{{@$email}}" class="form-control" placeholder="Enter Email Address">
-                                </div><!-- input-group -->
-                            </div>
-                            
-                        </div><!-- row -->
-                        <br />
-                        <div class="row">
-                            
-                            <div class="col-sm-6">
-                                <div class="input-group mb15">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input name="password" type="password" class="form-control" placeholder="Enter Password">
-                                </div><!-- input-group -->
-                            </div>
-                             <div class="col-sm-6">
-                                <div class="input-group mb15">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input name="rpassword" type="password" class="form-control" placeholder="Re Enter Password">
-                                </div><!-- input-group -->
-                            </div>
-                        </div><!-- row -->
-                        <br />
-                        <div class="clearfix">
-                            <div class="pull-left">
-                                
-                            </div>
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-success">Create New Account <i class="fa fa-angle-right ml5"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                    
-                </div><!-- panel-body -->
-                <div class="panel-footer">
-                    <a href="login" class="btn btn-primary btn-block">Already a Member? Sign In</a>
-                </div><!-- panel-footer -->
-            </div><!-- panel -->
-            
-        </section>
+ <?php  if(isset($_GET['ref'])) echo $_SESSION['ref']= $_GET['ref'];?>
 
+
+ <script language=javascript>
+ function checkform() {
+  if (document.regform.fullname.value == '') {
+    alert("Please enter your full name!");
+    document.regform.fullname.focus();
+    return false;
+  }
+ 
+  
+  if (document.regform.username.value == '') {
+    alert("Please enter your username!");
+    document.regform.username.focus();
+    return false;
+  }
+  if (document.regform.password.value == '') {
+    alert("Please enter your password!");
+    document.regform.password.focus();
+    return false;
+  }
+  if (document.regform.password.value != document.regform.password2.value) {
+    alert("Please check your password!");
+    document.regform.password2.focus();
+    return false;
+  }
+ 
+  
+  if (document.regform.email.value == '') {
+    alert("Please enter your e-mail address!");
+    document.regform.email.focus();
+    return false;
+  }
+  if (document.regform.email.value != document.regform.email1.value) {
+    alert("Please retupe your e-mail!");
+    document.regform.email.focus();
+    return false;
+  }
+  if (document.regform.agree.checked == false) {
+    alert("You have to agree with the Terms and Conditions!");
+    return false;
+  }
+  return true;
+ }
+
+ function IsNumeric(sText) {
+  var ValidChars = "0123456789";
+  var IsNumber=true;
+  var Char;
+  if (sText == '') return false;
+  for (i = 0; i < sText.length && IsNumber == true; i++) { 
+    Char = sText.charAt(i); 
+    if (ValidChars.indexOf(Char) == -1) {
+      IsNumber = false;
+    }
+  }
+  return IsNumber;
+ }
+ </script>
+
+<div class="col-md-9 col-sm-9">
+            <h1>Rigister</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-7 col-sm-7">
+                  <form class="form-horizontal form-without-legend" name="regform" role="form" method=post  action=register>
+                    <div class="form-group">
+                      <label for="email" class="col-lg-4 control-label">Your Name  <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input name='fullname'  class="form-control" id="email" value="<?php echo @$_GET['name'];?>"  type="text">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-lg-4 control-label">Your Username: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input  class="form-control" id="password" name='username' type="text" value="<?php echo @$_GET['username'];?>"  >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-lg-4 control-label">Define Password: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input type=password name='password' class="form-control" id="password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-lg-4 control-label">Retype Password: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input type=password name=password2 class="form-control" id="password" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-lg-4 control-label">Your E-mail Address: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input  type=text name='email' class="form-control" id="password"  value="<?php echo @$_GET['email'];?>" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-lg-4 control-label">Retype Your E-mail: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input type=text name=email1 class="form-control" id="password" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-lg-8">
+                       
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-10 padding-right-30">
+                        <hr>
+                       
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+                  <div class="form-info">
+                    <h2><em>Important</em> Information</h2>
+                    <p>PLEASE PUT YOUR ALL INFORMATION CORRECTLY AND DONT SHARE WITH ANYONE.</p>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
 @stop

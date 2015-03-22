@@ -46,7 +46,7 @@ class HomeController extends BaseController {
         }
         public function support(){
             
-            return View::make('front.support');
+            return View::make('front.contact');
             
         }
         
