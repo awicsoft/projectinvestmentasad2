@@ -1,4 +1,4 @@
-@extends('main')
+@extends('front')
 
 @section('content')
 <section>
@@ -6,7 +6,7 @@
             <div class="panel panel-signin">
                 <div class="panel-body">
                     <div class="logo text-center">
-                        <img src="images/logo-primary.png" alt="Chain Logo" >
+                  <!--      <img src="images/logo-primary.png" alt="Chain Logo" > -->
                     </div>
                     <br />
                     <h4 class="text-center mb5">Forget Your Passowd?</h4>

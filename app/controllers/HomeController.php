@@ -55,4 +55,8 @@ class HomeController extends BaseController {
             return View::make('front.index');
             
         }
+        public function forget(){
+            
+                return View::make('password.recoverPassword');
+        }
 }
