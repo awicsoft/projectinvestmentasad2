@@ -67,17 +67,18 @@
             <div class="content-form-page">
               <div class="row">
                 <div class="col-md-7 col-sm-7">
-                  <form class="form-horizontal form-without-legend" name="regform" role="form" method=post  action=register>
+                    
+                  {{ Form::open(['route' => '/register'])}} 
                     <div class="form-group">
-                      <label for="email" class="col-lg-4 control-label">Your Name  <span class="require">*</span></label>
+                      <label for="name" class="col-lg-4 control-label">Your Name  <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input name='fullname'  class="form-control" id="email" value="<?php echo @$_GET['name'];?>"  type="text">
+                        <input name='name'  class="form-control" id="email" value=""  type="text">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="password" class="col-lg-4 control-label">Your Username: <span class="require">*</span></label>
+                      <label for="username" class="col-lg-4 control-label">Your Username: <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input  class="form-control" id="password" name='username' type="text" value="<?php echo @$_GET['username'];?>"  >
+                        <input  class="form-control" id="password" name='username' type="text" value=""  >
                       </div>
                     </div>
                     <div class="form-group">
@@ -95,15 +96,22 @@
                     <div class="form-group">
                       <label for="password" class="col-lg-4 control-label">Your E-mail Address: <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input  type=text name='email' class="form-control" id="password"  value="<?php echo @$_GET['email'];?>" >
+                        <input  type=email name='email' class="form-control" id="password"  value="" >
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="password" class="col-lg-4 control-label">Retype Your E-mail: <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input type=text name=email1 class="form-control" id="password" >
+                        <input type=email name=email1 class="form-control" id="password" >
                       </div>
                     </div>
+                      
+                    <div class="form-group">
+                      <label for="number" class="col-lg-4 control-label">Mobile: <span class="require">*</span></label>
+                      <div class="col-lg-8">
+                        <input type=number name=mobile class="form-control" id="mobile" >
+                      </div>
+                    </div>  
                     <div class="form-group">
                       <div class="col-lg-8">
                        

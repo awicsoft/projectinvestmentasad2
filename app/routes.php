@@ -15,20 +15,52 @@
 
 
 //FRONT END ROUTES
-Route::get('/','HomeController@index')->after('auth');
-Route::get('/signup',  'HomeController@register')->after('auth');
-Route::get('/register',  'HomeController@register')->after('auth');
+Route::get('/', [
+    'as' => 'index', 
+    'uses' => 'HomeController@index'
+    ]
+        )->after('auth');
 
-Route::get('/login',  'HomeController@login')->after('auth');
+
+Route::get('/register', [
+    'as' => 'register', 
+    'uses' => 'HomeController@register'
+    ] )->after('auth');
+
+Route::post('/register',   [
+    'as' => 'registerPost', 
+    'uses' => 'HomeController@registerPost'
+    ])->after('auth');
+
+Route::get('/login', [
+    'as' => 'login', 
+    'uses' => 'HomeController@login'
+    ])->after('auth');
 
 
-Route::get('/about',  'HomeController@about')->after('auth');
-Route::get('/faq',  'HomeController@faq')->after('auth');
-Route::get('/news',  'HomeController@news')->after('auth');
-Route::get('/support',  'HomeController@support')->after('auth');
+Route::get('/about',  [
+    'as' => 'about', 
+    'uses' => 'HomeController@about'
+    ] )->after('auth');
+
+Route::get('/faq', [
+    'as' => 'faq', 
+    'uses' => 'HomeController@faq'
+    ] )->after('auth');
+Route::get('/news', [
+    'as' => 'news', 
+    'uses' => 'HomeController@news'
+    ] )->after('auth');
+Route::get('/support', [
+    'as' => 'support', 
+    'uses' => 'HomeController@support'
+    ] )->after('auth');
 
 //recover password
-Route::get('/forget',  'HomeController@forget')->after('auth');
+Route::get('/forget', [
+    'as' => 'forget', 
+    'uses' => 'HomeController@forget'
+    ] )->after('auth');
 // end recover password
 
-//end Fron Routes
+//end Front Routes

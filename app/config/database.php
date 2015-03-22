@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'jaiza',
-			'username'  => 'root',
-			'password'  => '',
+			'database'  => 'ckeckmec_hilaalbanking',
+			'username'  => 'ckeckmec_usama',
+			'password'  => '~@9[d+.Eck2I',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
