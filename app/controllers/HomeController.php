@@ -18,22 +18,38 @@ class HomeController extends BaseController {
 
 
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
-	public function registerPage(){
-
-		
-		return View::make('register');
-
-	}
-	public function loginPage(){
-
-		return View::make('login');
-
-	}
+        public function login(){
+            
+            return View::make('front.login');
+            
+        }
+        
+        public function register(){
+            
+            return View::make('front.register');
+            
+        }
+        public function faq(){
+            
+            return View::make('front.faq');
+            
+        }
+        public function about(){
+            
+            return View::make('front.about');
+            
+        }
+        public function news(){
+            
+            return View::make('front.news');
+            
+        }
+        public function support(){
+            
+            return View::make('front.support');
+            
+        }
+        
         public function index(){
             
             return View::make('front.index');

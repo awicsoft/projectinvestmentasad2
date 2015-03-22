@@ -11,26 +11,20 @@
 |
 */
 
-Route::get('/addToken/{code}', function($code)
-{
-    Analytics::where('ID',1)->update(['token' => $code]);
-    return Redirect::to('analytics');
-    
-});
 
 
-Route::get('/analytics', 'AnalyticsController@analytics');
 
-/*Route::get('/about','myController@aboutPage');
-//Route::get('usama/', function()
-//{
-//	$name = "sajad";
 
-//	return View::make('usama')->with('name',$name);
-	
-//});
-
-*/
-
-Route::get('/GenerateReport','GenerateReportController@gReportPage')->before('auth');;
 Route::get('/','HomeController@index')->after('auth');
+Route::get('/signup',  'HomeController@registeration')->after('auth');
+
+Route::get('/login',  'HomeController@login')->after('auth');
+
+
+Route::get('/about',  'HomeController@about')->after('auth');
+Route::get('/faq',  'HomeController@faq')->after('auth');
+Route::get('/news',  'HomeController@news')->after('auth');
+Route::get('/support',  'HomeController@support')->after('auth');
+
+
+
