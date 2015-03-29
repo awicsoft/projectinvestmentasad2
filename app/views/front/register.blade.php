@@ -68,49 +68,66 @@
               <div class="row">
                 <div class="col-md-7 col-sm-7">
                     
-                  {{ Form::open(['route' => '/register'])}} 
+                  {{ Form::open([
+                      'route' => 'register', 
+                      'class' => 'form-horizontal form-without-legend'
+                    ])}} 
                     <div class="form-group">
-                      <label for="name" class="col-lg-4 control-label">Your Name  <span class="require">*</span></label>
+                        {{ $errors->first('name'); }}
+                        {{Form::label('name', 'Your Name', array('class' => 'col-lg-4 control-label'))}}
+                      <span class="require">*</span>
                       <div class="col-lg-8">
-                        <input name='name'  class="form-control" id="email" value=""  type="text">
+                            
+                            {{Form::text('name','', [ 'class' => 'form-control' ])}}
+                        
+                      </div>
+                    </div>
+                  
+                    <div class="form-group">
+                          {{ $errors->first('username'); }}
+                        {{Form::label('username', 'Your Username:', array('class' => 'col-lg-4 control-label'))}}
+                     
+                        <span class="require">*</span>
+                      <div class="col-lg-8">
+                            {{Form::text('username','', [ 'class' => 'form-control' ])}}
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="username" class="col-lg-4 control-label">Your Username: <span class="require">*</span></label>
+                         {{Form::label('password', 'Define Password:', array('class' => 'col-lg-4 control-label'))}}
+                       {{ $errors->first('password'); }}
+                         <span class="require">*</span>
                       <div class="col-lg-8">
-                        <input  class="form-control" id="password" name='username' type="text" value=""  >
-                      </div>
+                          
+                        {{Form::password('password', [ 'class' => 'form-control' ,'id'=>'password'])}}
+                        </div>
                     </div>
+                    
                     <div class="form-group">
-                      <label for="password" class="col-lg-4 control-label">Define Password: <span class="require">*</span></label>
-                      <div class="col-lg-8">
-                        <input type=password name='password' class="form-control" id="password">
+                         {{ $errors->first('email'); }}
+                         {{Form::label('email', 'Your E-mail Address: ', array('class' => 'col-lg-4 control-label'))}}
+                            <span class="require">  *</span>
+                  
+                            <div class="col-lg-8">
+                          {{Form::email('email', 'abc@example.com',[ 'class' => 'form-control'])}}
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="password" class="col-lg-4 control-label">Retype Password: <span class="require">*</span></label>
-                      <div class="col-lg-8">
-                        <input type=password name=password2 class="form-control" id="password" >
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="password" class="col-lg-4 control-label">Your E-mail Address: <span class="require">*</span></label>
-                      <div class="col-lg-8">
-                        <input  type=email name='email' class="form-control" id="password"  value="" >
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="password" class="col-lg-4 control-label">Retype Your E-mail: <span class="require">*</span></label>
-                      <div class="col-lg-8">
-                        <input type=email name=email1 class="form-control" id="password" >
-                      </div>
-                    </div>
+                    
                       
                     <div class="form-group">
-                      <label for="number" class="col-lg-4 control-label">Mobile: <span class="require">*</span></label>
+                          {{ $errors->first('mobile'); }}
+                         {{Form::label('number', 'Mobile: ', array('class' => 'col-lg-4 control-label'))}}
+                     
+                                <span class="require">*</span>
+                                
                       <div class="col-lg-8">
-                        <input type=number name=mobile class="form-control" id="mobile" >
-                      </div>
+                          {{
+                          Form::macro('number', function()
+                            {
+                                return '<input type="number" name="mobile" class="form-control">';
+                            });
+                          }}
+                             {{Form::number();}}
+                     </div>
                     </div>  
                     <div class="form-group">
                       <div class="col-lg-8">
@@ -121,7 +138,8 @@
 
                     <div class="row">
                       <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
-                        <button type="submit" class="btn btn-primary">Register</button>
+                                 {{ Form::submit('Register Me!',['class' =>'btn btn-primary']);}}
+                   
                       </div>
                     </div>
                     <div class="row">

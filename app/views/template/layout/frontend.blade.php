@@ -181,4 +181,16 @@
 
 <!-- END BODY -->
 </html>
+<?php 
+/*
+foreach (@$messages->all() as $message)
+{
+   echo "<script>alert('".$message."');</script>";
+}*/
+?>
+@if(Session::has('message'))
 
+    <script>alert('{{Session::get("message")}}')</script>"
+    @Session::put(['message',""]);
+    
+@endif

@@ -2,7 +2,6 @@
 class UserController extends BaseController{
 		
 	
-		
 	function all(){
 		$users = User::all();
 
@@ -200,29 +199,8 @@ function logout(){
 
 	function login(){
 	
-		$userdata = array(
-				'username' 	=> Input::get('username'),
-				'password' 	=> Input::get('password')
-			);
-
-			// attempt to do the login
-			if (Auth::attempt($userdata)) {
-
-				// validation successful!
-				// redirect them to the secure section or whatever
-				// return Redirect::to('secure');
-				// for now we'll just echo success (even though echoing in a controller is bad)
-				return Redirect::to('user');
-
-			} else {
-
-				// validation not successful, send back to form
-				return  View::make('login',['message' => "WRONG DETAILS"]);
-
-			}
-
-			 
-			
+		$login = new LoginController();
+               return $login->loginPost();
 
 	}
 

@@ -19,48 +19,67 @@ Route::get('/', [
     'as' => 'index', 
     'uses' => 'HomeController@index'
     ]
-        )->after('auth');
-
-
-Route::get('/register', [
-    'as' => 'register', 
-    'uses' => 'HomeController@register'
-    ] )->after('auth');
-
-Route::post('/register',   [
-    'as' => 'registerPost', 
-    'uses' => 'HomeController@registerPost'
-    ])->after('auth');
-
-Route::get('/login', [
-    'as' => 'login', 
-    'uses' => 'HomeController@login'
-    ])->after('auth');
-
-
+        );
 Route::get('/about',  [
     'as' => 'about', 
     'uses' => 'HomeController@about'
-    ] )->after('auth');
-
+    ] );
 Route::get('/faq', [
     'as' => 'faq', 
     'uses' => 'HomeController@faq'
-    ] )->after('auth');
+    ] );
 Route::get('/news', [
     'as' => 'news', 
     'uses' => 'HomeController@news'
-    ] )->after('auth');
+    ] );
 Route::get('/support', [
     'as' => 'support', 
     'uses' => 'HomeController@support'
-    ] )->after('auth');
+    ] );
 
 //recover password
 Route::get('/forget', [
     'as' => 'forget', 
     'uses' => 'HomeController@forget'
-    ] )->after('auth');
+    ] );
 // end recover password
 
-//end Front Routes
+
+
+
+//login register logout
+Route::get('/register', [
+    'as' => 'register', 
+    'uses' => 'RegisterController@register'
+    ] );
+
+Route::post('/register',   [
+    'as' => 'registerPost', 
+    'uses' => 'RegisterController@doRegister'
+    ]);
+
+Route::get('/login', [
+    'as' => 'login', 
+    'uses' => 'LoginController@login'
+    ]);
+
+Route::post('/login', 'UserController@login');
+
+
+
+Route::get('/logout', [
+    'as' => 'logout', 
+    'uses' => 'LogoutController@logout'
+    ]);
+
+//userpanel
+
+Route::get('/user', [
+    'as' => 'user', 
+    'uses' => function(){
+        return "sss";
+    
+    }
+    ])->before('auth');
+
+

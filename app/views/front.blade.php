@@ -15,8 +15,8 @@
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="login">Log In</a></li>
-                        <li><a href="register">Registration</a></li>
+                        <li><a href="{{route('login')}}">Log In</a></li>
+                        <li><a href="{{route('register')}}">Registration</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->
@@ -28,7 +28,7 @@
 @section('header')
 <div class="header">
       <div class="container">
-        <a class="site-logo" href="index"><img src="http://assets.hilaalbanking.com/frontend/layout/img/logos/logo-corp-red.png" alt=""></a>
+        <a class="site-logo" href="{{route('index')}}"><img src="http://assets.hilaalbanking.com/frontend/layout/img/logos/logo-corp-red.png" alt=""></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -36,7 +36,7 @@
         <div class="header-navigation pull-right font-transform-inherit">
           <ul>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="index">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="{{route('index')}}">
                 Home 
                 
               </a>
@@ -44,7 +44,7 @@
               
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="about">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="{{route('about')}}">
                 About 
                 
               </a>
@@ -52,7 +52,7 @@
               
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="faq">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="{{route('faq')}}">
                 FAQ 
                 
               </a>
@@ -60,7 +60,7 @@
               
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="news">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="{{route('news')}}">
                 News 
                 
               </a>
@@ -68,7 +68,7 @@
               
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="" data-target="#" href="support">
+              <a class="dropdown-toggle" data-toggle="" data-target="#" href="{{route('support')}}">
                 Support 
                 
               </a>
